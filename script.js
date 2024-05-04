@@ -1,10 +1,10 @@
 function validateForm() {
-    var fornavn = document.getElementById("fornavn").value;
-    var epost = document.getElementById("e-post").value;
-    var passord = document.getElementById("passord").value;
-    var etternavn = document.getElementById("etternavn").value;
-    var postnummer = document.getElementById("postnummer").value;
-    var gjentaPassord = document.getElementById("gjentaPassord").value;
+    let fornavn = document.getElementById("fornavn").value;
+    let epost = document.getElementById("e-post").value;
+    let passord = document.getElementById("passord").value;
+    let etternavn = document.getElementById("etternavn").value;
+    let postnummer = document.getElementById("postnummer").value;
+    let gjentaPassord = document.getElementById("gjentaPassord").value;
 
     // Check if all fields are filled in
     if (fornavn === "" || epost === "" || passord === "" || etternavn === "" || postnummer === "" || gjentaPassord === "") {
