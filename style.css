@@ -25,7 +25,7 @@ h2 {
 .input-group {
     display: flex;
     flex-direction: column;
-    color: #276242;
+    color: #274f62;
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
@@ -59,12 +59,12 @@ h2 {
     cursor: pointer;
     margin-top: 100px;
     color: black;
-    border: 2px solid #276242;
+    border: 2px solid #274f62;
     width: 105px;
     height: 45px; 
 }
   
 #knapp:hover {
-    background-color: #276242;
+    background-color: #274f62;
     color: white;
 }
