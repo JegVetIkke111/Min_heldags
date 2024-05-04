@@ -1,0 +1,70 @@
+body {
+    background-color: #80976e;
+}
+
+h1, h2 {
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #0E402D;
+}
+
+h2 {
+    color: #276242;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Adjust the gap between the input groups */
+    margin-top: 100px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    color: #276242;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    width: 250px; 
+}
+
+.input-group input {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#knappdiv {
+    display: flex;          
+    justify-content: center;
+    align-items: center;  
+}
+
+#knapp {
+    background-color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 100px;
+    color: black;
+    border: 2px solid #276242;
+    width: 105px;
+    height: 45px; 
+}
+  
+#knapp:hover {
+    background-color: #276242;
+    color: white;
+}

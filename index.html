@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Butikken.no</title>
+</head>
+<body>
+    <h1>Velkommen til Butikken.no &#127793</h1>
+    <h2>Vennligst skriv inn dine personalia slik at du kan komme deg videre på nettsiden!</h2>
+
+    <div class="input-container">
+        <div id="inputboks1" class="input-group">
+            <div class="input-group">
+                <label for="fornavn">Fornavn</label>
+                <input type="text" id="fornavn" placeholder="Ola" required>
+            </div>
+            <div class="input-group">
+                <label for="e-post">E-post</label>
+                <input type="email" id="e-post" placeholder="eksempel@domene.com" required>
+            </div>
+            <div class="input-group">
+                <label for="passord">Passord</label>
+                <input type="password" id="passord" required>
+            </div>
+        </div>
+    
+        <div id="inputboks2" class="input-group">
+            <div class="input-group">
+                <label for="etternavn">Etternavn</label>
+                <input type="text" id="etternavn" placeholder="Nordmann" required>
+            </div>
+            <div class="input-group">
+                <label for="postnummer">Postnummer</label>
+                <input type="number" id="postnummer" placeholder="1234" required>
+            </div>
+            <div class="input-group">
+                <label for="gjentaPassord">Gjenta passord</label>
+                <input type="password" id="gjentaPassord" required>
+            </div>
+        </div>
+    </div>
+    <div id="knappdiv">
+        <button onclick="validateForm()" id="knapp">Lag bruker</button>
+    </div>
+</body>
+</html>
+
 
