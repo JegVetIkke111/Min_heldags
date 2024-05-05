@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title></title>
+    <title>Bilutleie.no</title>
 </head>
 <body>
-    <h1>Velkommen til Bilutleie.no &#128663</h1>
-    <h2>Vennligst skriv inn dine personalia slik at du kan komme deg videre på nettsiden!</h2>
+    <!-- Del 1: Brukerregistrering -->
+<div id="sign-in">
+    <h1>Velkommen til Bilutleie.no - Norges største på utleie av bil &#128663;</h1>
+    <h2>Vennligst skriv inn dine personalia for å lage en bruker på nettsiden og kunne låne bil!</h2>
     <div class="input-container">
         <div id="inputboks1" class="input-group">
             <div class="input-group">
@@ -32,7 +34,7 @@
             </div>
             <div class="input-group">
                 <label for="postnummer">Postnummer</label>
-                <input type="number" id="postnummer " placeholder="1234" required>
+                <input type="number" id="postnummer" placeholder="1234" required>
             </div>
             <div class="input-group">
                 <label for="gjentaPassord">Gjenta passord</label>
@@ -41,9 +43,125 @@
         </div>
     </div>
     <div id="knappdiv">
-        <button onclick="validateForm()" id="knapp">Lag bruker</button>
+        <button onclick="checkForm()" id="knapp">Lag bruker</button>
     </div>
+</div>
+
+    <!-- Del 2: Spesifisering av tid og hentested -->
+    <div id="step1" style="display: none;">
+        <h1>Spesifisering av tid og hentested &#128338; &#128205;</h1>
+        <h2>Skriv inn informasjonen i feltene for å fortsette</h2>
+        <div class="input-container">
+            <div class="input-group">
+                <label for="location" class="location-label">Hentested</label>
+                <input type="text" id="location" placeholder="Flyplass, by eller adresse" style="width: 350px;" required>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="input-group horizontal">
+                <div class="date-time-stack">
+                    <label for="start_date">Starttid</label>
+                    <input type="date" id="start_date" required>
+                    <input type="time" id="start_time" required>
+                </div>
+                <span class="arrow">&#8594;</span> <!-- Arrow for visual transition -->
+                <div class="date-time-stack">
+                    <label for="end_date">Sluttid</label>
+                    <input type="date" id="end_date" required>
+                    <input type="time" id="end_time" required>
+                </div>
+            </div>
+        </div>
+        <div id="knappdiv">
+            <button onclick="validateForm()" id="knapp">Gå videre</button>
+        </div>
+    </div>
+
+    <!-- Del 3: Bilvalg -->
+    <div id="step2" style="display: none;">
+        <h1 id="bilSetning">Hvilken bil vil kunne passe deg best? &#x2705;</h1>
+        <h2 id="quizSetning">Ta quizen for å finne det ut!</h2>
+        <h2 id="hoppOverSetning">(Hvis du manuelt vil velge, trykk på "hopp over" knappen nederst)</h2>
+        <div id="quiz-container">
+            <div id="quiz">
+                <h3>Spørsmål 1:</h3>
+                <p>Hvordan foretrekker du å kjøre?</p>
+                <input type="radio" name="question1" value="A"> Sportslig og kjapt<br>
+                <input type="radio" name="question1" value="B"> Komfortabelt<br>
+                <input type="radio" name="question1" value="C"> Økonomisk og miljøvennlig<br>
+
+                <h3>Spørsmål 2:</h3>
+                <p>Hvor mange personer trenger du å kunne transportere vanligvis?</p>
+                <input type="radio" name="question2" value="A"> Bare meg selv<br>
+                <input type="radio" name="question2" value="B"> Meg og en til person<br>
+                <input type="radio" name="question2" value="C"> Flere enn to personer<br>
+                
+                <h3>Spørsmål 3:</h3>
+                <p>Hvor mye bagasje eller last trenger du å kunne ta med?</p>
+                <input type="radio" name="question3" value="A"> Lite, jeg reiser lett<br>
+                <input type="radio" name="question3" value="B"> Moderat, noen kofferter eller bagger<br>
+                <input type="radio" name="question3" value="C"> Mye, jeg trenger stor plass til bagasje eller utstyr<br>
+                
+                <h3>Spørsmål 4:</h3>
+                <p>Hvilket drivstoff foretrekker du?</p>
+                <input type="radio" name="question4" value="A"> Bensin<br>
+                <input type="radio" name="question4" value="B"> Diesel<br>
+                <input type="radio" name="question4" value="C"> Elektrisk<br>
+                
+                <h3>Spørsmål 5:</h3>
+                <p>Hvordan er veiforholdene der du vanligvis kjører?</p>
+                <input type="radio" name="question5" value="A"> Godt vedlikeholdt asfalt<br>
+                <input type="radio" name="question5" value="B"> Variert, både asfalt og grus<br>
+                <input type="radio" name="question5" value="C"> Krevende, terreng eller dårlige veier<br>
+            </div>
+            <button onclick="showResult()">Se resultat</button>
+            <button onclick="skipQuiz()">Hopp over</button>
+        </div>
+    
+        <div id="result-container" style="display:none;">
+            <div id="result"></div>
+            <button id="back-button" onclick="reviewAnswers()">Gå tilbake</button>
+            <button id="confirm-button" onclick="confirmDecision()">Bekreft beslutning og gå videre</button>
+        </div>
+        
+        <div id="skip-container" style="display:none;">
+            <h3>Velg en bil:</h3>
+            <select id="car-options">
+                <option value="Sportsbil (90 kr per time)">Sportsbil</option>
+                <option value="Familie-SUV (50 kr per time)">Familie-SUV</option>
+                <option value="Økonomibil (30 kr per time)">Økonomibil</option>
+            </select>
+            <button id="car-choice-button" onclick="confirmCarChoice()">Angi valg</button>
+        </div>
+    </div>
+
+    <!-- Del 4: Tilleggsutstyr -->
+
+    <div id="add-ons" style="display: none;">
+        <h1>Velg tilleggsutstyr &#10133;</h1>
+        <div class="add-ons-container">
+            <input type="checkbox" id="roof-rack" name="roof-rack" onchange="toggleQuantityInput('roof-rack', 'roof-rack-quantity')">
+            <label for="roof-rack">Takstativ (80 kr)</label>
+            <input type="number" id="roof-rack-quantity" name="roof-rack-quantity" min="1" value="0" style="display: none;"> stk<br>
+            
+            <input type="checkbox" id="bike-rack" name="bike-rack" onchange="toggleQuantityInput('bike-rack', 'bike-rack-quantity')">
+            <label for="bike-rack">Sykkelstativ (70 kr)</label>
+            <input type="number" id="bike-rack-quantity" name="bike-rack-quantity" min="1" value="0" style="display: none;"> stk<br>
+            
+            <input type="checkbox" id="child-seat" name="child-seat" onchange="toggleQuantityInput('child-seat', 'child-seat-quantity')">
+            <label for="child-seat">Barnesete (60 kr)</label>
+            <input type="number" id="child-seat-quantity" name="child-seat-quantity" min="1" value="0" style="display: none;"> stk<br>
+            
+            <input type="checkbox" id="gps" name="gps" onchange="toggleQuantityInput('gps', 'gps-quantity')">
+            <label for="gps">GPS (100 kr)</label>
+            <input type="number" id="gps-quantity" name="gps-quantity" min="1" value="0" style="display: none;"> stk<br>
+        </div>  
+        <button onclick="calculateCost()">Beregn kostnad</button>       
+    </div>
+
+    <!-- Resultat og utregning -->
+    <div id="utregning" style="display: none;"></div> 
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-

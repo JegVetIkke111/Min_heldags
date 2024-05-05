@@ -1,10 +1,11 @@
+/* Common styles for both pages */
 body {
     background-color: #6e7997;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2 {
-    text-align: center; 
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 h1 {
@@ -13,40 +14,46 @@ h1 {
 
 h2 {
     color: #274f62;
+    font-size: 20px;
 }
 
 .input-container {
     display: flex;
     justify-content: center;
-    gap: 50px; /* Adjust the gap between the input groups */
     margin-top: 100px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: #274f62;
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.input-group label {
-    margin-bottom: 5px;
-    width: 250px; 
+.input-group.horizontal {
+    flex-direction: row;
+}
+
+.location-label {
+    text-align: center;
+    width: 350px;
 }
 
 .input-group input {
     width: 250px;
     height: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 20px;
+    text-align: center;
 }
 
 #knappdiv {
-    display: flex;          
+    display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 #knapp {
@@ -61,10 +68,88 @@ h2 {
     color: black;
     border: 2px solid #274f62;
     width: 105px;
-    height: 45px; 
+    height: 45px;
 }
-  
+
 #knapp:hover {
     background-color: #274f62;
     color: white;
+}
+
+/* Additional CSS for quiz alignment */
+#quiz-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#quiz-container h3 {
+    color: #0e2c40;
+}
+
+#quiz-container p {
+    color: #274f62;
+}
+
+#quiz-container input[type="radio"] {
+    margin-bottom: 10px;
+}
+
+#quiz-container button {
+    background-color: #274f62;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#quiz-container button:hover {
+    background-color: #0e2c40;
+}
+
+#utregning {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: #0e2c40;
+    background-color: rgb(227, 236, 249);
+}
+
+#skip-container, #result-container, #add-ons-container {
+margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#add-ons-container {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#add-ons {
+    text-align: center;
+}
+
+.arrow {
+    font-size: 32px;
+    margin: 0 30px;
+}
+
+.date-time-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
