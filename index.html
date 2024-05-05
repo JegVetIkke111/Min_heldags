@@ -8,7 +8,7 @@
     <title>Bilutleie.no</title>
 </head>
 <body>
-    <!-- Del 1: Brukerregistrering -->
+   <!-- Del 1: Brukerregistrering -->
 <div id="sign-in">
     <h1>Velkommen til Bilutleie.no - Norges største på utleie av bil &#128663;</h1>
     <h2>Vennligst skriv inn dine personalia for å lage en bruker på nettsiden og kunne låne bil!</h2>
@@ -42,11 +42,16 @@
             </div>
         </div>
     </div>
+    <div class="alder">
+        <label>
+            <input type="checkbox" id="alder-bekreftelse"> Jeg bekrefter at jeg er over 19 år
+        </label>
+    </div>
     <div id="knappdiv">
         <button onclick="checkForm()" id="knapp">Lag bruker</button>
     </div>
 </div>
-
+      
     <!-- Del 2: Spesifisering av tid og hentested -->
     <div id="step1" style="display: none;">
         <h1>Spesifisering av tid og hentested &#128338; &#128205;</h1>
@@ -125,7 +130,7 @@
         </div>
         
         <div id="skip-container" style="display:none;">
-            <h3>Velg en bil:</h3>
+            <h2 id="bilvalgtekst">Velg en bil:</h2>
             <select id="car-options">
                 <option value="Sportsbil (90 kr per time)">Sportsbil</option>
                 <option value="Familie-SUV (50 kr per time)">Familie-SUV</option>
@@ -139,29 +144,27 @@
 
     <div id="add-ons" style="display: none;">
         <h1>Velg tilleggsutstyr &#10133;</h1>
-        <div class="add-ons-container">
+        <div id="add-ons-container">
             <input type="checkbox" id="roof-rack" name="roof-rack" onchange="toggleQuantityInput('roof-rack', 'roof-rack-quantity')">
             <label for="roof-rack">Takstativ (80 kr)</label>
-            <input type="number" id="roof-rack-quantity" name="roof-rack-quantity" min="1" value="0" style="display: none;"> stk<br>
+            <input type="number" id="roof-rack-quantity" name="roof-rack-quantity" min="1" value="" style="display: none; width: 75px; height: 17px;"> stk<br>
             
             <input type="checkbox" id="bike-rack" name="bike-rack" onchange="toggleQuantityInput('bike-rack', 'bike-rack-quantity')">
             <label for="bike-rack">Sykkelstativ (70 kr)</label>
-            <input type="number" id="bike-rack-quantity" name="bike-rack-quantity" min="1" value="0" style="display: none;"> stk<br>
+            <input type="number" id="bike-rack-quantity" name="bike-rack-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
             
             <input type="checkbox" id="child-seat" name="child-seat" onchange="toggleQuantityInput('child-seat', 'child-seat-quantity')">
             <label for="child-seat">Barnesete (60 kr)</label>
-            <input type="number" id="child-seat-quantity" name="child-seat-quantity" min="1" value="0" style="display: none;"> stk<br>
+            <input type="number" id="child-seat-quantity" name="child-seat-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
             
             <input type="checkbox" id="gps" name="gps" onchange="toggleQuantityInput('gps', 'gps-quantity')">
             <label for="gps">GPS (100 kr)</label>
-            <input type="number" id="gps-quantity" name="gps-quantity" min="1" value="0" style="display: none;"> stk<br>
+            <input type="number" id="gps-quantity" name="gps-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
+            <button id="add-on-knapp" onclick="calculateCost()">Beregn kostnad</button>            
         </div>  
-        <button onclick="calculateCost()">Beregn kostnad</button>       
     </div>
 
     <!-- Resultat og utregning -->
     <div id="utregning" style="display: none;"></div> 
-
-    <script src="script.js"></script>
 </body>
 </html>
