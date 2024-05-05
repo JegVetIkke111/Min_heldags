@@ -147,22 +147,22 @@
         <div id="add-ons-container">
             <input type="checkbox" id="roof-rack" name="roof-rack" onchange="toggleQuantityInput('roof-rack', 'roof-rack-quantity')">
             <label for="roof-rack">Takstativ (80 kr)</label>
-            <input type="number" id="roof-rack-quantity" name="roof-rack-quantity" min="1" value="" style="display: none; width: 75px; height: 17px;"> stk<br>
+            <input type="number" id="roof-rack-quantity" name="roof-rack-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;" oninput="validatePositive(this)"> stk<br>
             
             <input type="checkbox" id="bike-rack" name="bike-rack" onchange="toggleQuantityInput('bike-rack', 'bike-rack-quantity')">
             <label for="bike-rack">Sykkelstativ (70 kr)</label>
-            <input type="number" id="bike-rack-quantity" name="bike-rack-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
-            
+            <input type="number" id="bike-rack-quantity" name="bike-rack-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;" oninput="validatePositive(this)"> stk<br>
+    
             <input type="checkbox" id="child-seat" name="child-seat" onchange="toggleQuantityInput('child-seat', 'child-seat-quantity')">
             <label for="child-seat">Barnesete (60 kr)</label>
-            <input type="number" id="child-seat-quantity" name="child-seat-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
-            
+            <input type="number" id="child-seat-quantity" name="child-seat-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;" oninput="validatePositive(this)"> stk<br>
+    
             <input type="checkbox" id="gps" name="gps" onchange="toggleQuantityInput('gps', 'gps-quantity')">
             <label for="gps">GPS (100 kr)</label>
-            <input type="number" id="gps-quantity" name="gps-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;"> stk<br>
+            <input type="number" id="gps-quantity" name="gps-quantity" min="1" value="1" style="display: none; width: 75px; height: 17px;" oninput="validatePositive(this)"> stk<br>
             <button id="add-on-knapp" onclick="calculateCost()">Beregn kostnad</button>            
         </div>  
-    </div>
+    </div>    
 
     <!-- Resultat og utregning -->
     <div id="utregning" style="display: none;"></div> 

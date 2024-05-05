@@ -181,6 +181,20 @@ function toggleQuantityInput(checkboxId, quantityId) {
     }
 }
 
+function validatePositive(input) {
+    let value = parseFloat(input.value);
+    if (value <= 0) {
+        input.value = ''; // Clear the input if the value is not positive
+    }
+}
+
+// Call the validation function whenever the input changes
+document.querySelectorAll('input[type="number"]').forEach(input => {
+    input.addEventListener('input', function() {
+        validatePositive(this);
+    });
+});
+
 function calculateCost() {
     var fornavn = document.getElementById("fornavn").value;
     var etternavn = document.getElementById("etternavn").value;
@@ -242,7 +256,7 @@ function calculateCost() {
                     <p>Starttid: ${startDateTime.toLocaleString()}</p>
                     <p>Sluttid: ${endDateTime.toLocaleString()}</p>
                     <p>Valgt bil: ${selectedCar}</p>
-                    <p>Antall timer: ${hours}</p>
+                    <p>Antall timer: ${hours} (Avrundet)</p>
                     <p>Tilleggsutstyr:</p>
                     <ul>
                         ${addOnsText}
